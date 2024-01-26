@@ -23,9 +23,7 @@ def display_hbnb():
 @app.route("/c/<text>", strict_slashes=False)
 def display_C(text):
     """Dispalys C followed by the content of <text>"""
-    if text == "_":
-        return " "
-    return "C {text}"
+    return "C " + text.replace('_', ' ')
 
 
 if __name__ == '__main__':
