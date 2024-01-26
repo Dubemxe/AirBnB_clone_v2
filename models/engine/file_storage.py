@@ -59,3 +59,7 @@ class FileStorage:
             Do nothing if obj is None'''
         if obj is not None and obj in self.__object:
             del self.__object[obj]
+
+    def close(self):
+        """reload() for deserializing the JSON file to objects"""
+        self.reload()
