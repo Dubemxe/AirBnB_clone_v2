@@ -51,7 +51,7 @@ def display_number_eo(n):
         value = 'even'
     else:
         value = 'odd'
-    return render_template('6-number_odd_or_even.html', value=value, n=n)
+    return render_template('6-number_odd_or_even.html', n=n, value=value)
 
 
 if __name__ == '__main__':
