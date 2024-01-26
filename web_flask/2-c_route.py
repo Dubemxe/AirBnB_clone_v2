@@ -25,8 +25,7 @@ def display_C(text):
     """Dispalys C followed by the content of <text>"""
     if text == "_":
         return " "
-    else:
-        return f"C {text}"
+    return f"C {text}"
 
 
 if __name__ == '__main__':
