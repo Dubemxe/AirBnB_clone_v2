@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Defines a script that listens on 0.0.0.0, port 5000 and displays content
-provided.
+Defines a script that listens on 0.0.0.0, port 5000 and displays provided
+content.
 """
 from flask import Flask
 app = Flask(__name__)
@@ -30,6 +30,18 @@ def display_C(text):
 def display_C(text='is cool'):
     """Displays Python followed by the content of <text>"""
     return "Python " + text.replace('_', ' ')
+
+
+@app.route('/number/<int:n>', strict_slashes=False)
+def display_number(n):
+    """display n is a number only if n is an integer"""
+    return "{:d} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def display_templates(n):
+    """display a HTML page only if n is an integer"""
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':
