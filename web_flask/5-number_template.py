@@ -3,7 +3,7 @@
 Defines a script that listens on 0.0.0.0, port 5000 and displays provided
 content.
 """
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
