@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
 -- Create a User with localhost
-CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd'
+CREATE USER 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd'
 
 -- Grant Usage
 GRANT USAGE ON *.* TO 'hbnb_dev'@'localhost'
