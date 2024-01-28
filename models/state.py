@@ -15,20 +15,20 @@ class State(BaseModel, Base):
         __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship("City", backref="state")
-    else:
+   else:
         name = ""
 
-    def __init__(self, *args, **kwargs):
+   def __init__(self, *args, **kwargs):
         """initializes state"""
         super().__init__(*args, **kwargs)
 
-    if models.storage_t != "db":
-        @property
-        def cities(self):
-            """Gets list of city instances related to the state"""
-            cities_list = []
-            all_cities = models.storage.all(City)
-            for city in all_cities.values():
-                if city.state_id == self.id:
-                    cities_list.append(city)
-            return cities_list
+   if models.storage_t != "db":
+       @property
+       def cities(self):
+           """Gets list of city instances related to the state"""
+           cities_list = []
+           all_cities = models.storage.all(City)
+           for city in all_cities.values():
+               if city.state_id == self.id:
+                   cities_list.append(city)
+           return cities_list
