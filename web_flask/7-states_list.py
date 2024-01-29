@@ -5,15 +5,16 @@ content.
 """
 
 from flask import Flask, render_template
-from models import *
+from models.state import State
 from models import storage
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     """Displays a HTML page with the states sorted by names"""
-    states = storage.all("State").values()
+    states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
 
 
