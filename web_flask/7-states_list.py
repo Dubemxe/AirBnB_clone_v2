@@ -11,17 +11,17 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
+@app.teardown_appcontext
+def teardown_dbs(exception):
+    """Closes the storage on teardown"""
+    storage.close()
+
+
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     """Displays a HTML page with the states sorted by names"""
     states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
-
-
-@app.teardown_appcontext
-def teardown_dbs(exception):
-    """Closes the storage on teardown"""
-    storage.close()
 
 
 if __name__ == '__main__':
